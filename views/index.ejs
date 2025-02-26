@@ -1,0 +1,26 @@
+<div class="author">
+    <h1 class = "author__name"> My Name is Eswar Venkat Sai</h1>
+    <p class="author__bio">I am a tech enthusiast and a engineering student.</p>
+</div>
+
+<img src="imgs/author.jpeg" alt="author image" class="author__img" width="981" height="528">
+
+<section class="articles">
+    <h2 class="articles__title">Latest Articles</h2>
+
+    <ul class="articles__list">
+
+        <% data.forEach(Post => { %>
+        <li>
+            <a href="/Post/<%= Post._id %>">
+                <span><%= Post.title %></span>
+                <span class="article-list__date"><%= Post.createdAt.toDateString() %></span>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older posts</a>
+    <% } %>
+</section>
